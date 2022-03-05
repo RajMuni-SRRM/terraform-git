@@ -1,4 +1,4 @@
-
+/*
 terraform {
   backend "s3" {
     bucket = "srrm-s3-terraform-demo"
@@ -6,7 +6,7 @@ terraform {
     region = "eu-west-2"
   }
 }
-
+*/
 provider "aws" {
     region = "eu-west-2"
 }
