@@ -9,6 +9,7 @@ terraform {
 */
 provider "aws" {
     region = "eu-west-2"
+    version = "~> 1.0"
 }
 
 resource "aws_instance" "k8s" {
