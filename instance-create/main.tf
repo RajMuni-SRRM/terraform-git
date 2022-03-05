@@ -9,15 +9,15 @@ terraform {
 
 */
 provider "aws" {
-    region = "eu-west-2"
+    region = "${var.region}"
 }
 
 resource "aws_instance" "k8s" {
-    count         = 2
-    ami           = "ami-0015a39e4b7c0966f"
-    instance_type = var.instance_type
-    key_name = "common-key-pair"
-    vpc_security_group_ids = ["sg-062b7c758e483c1ff"]
+    count         = "${var.instance_count}"
+    ami           = "${var.ami}"
+    instance_type = "${var.instance_type}"
+    key_name = "${var.key_name}"
+    vpc_security_group_ids = "${var.security_group}"
     tags = {
         Name = "Node-${count.index}"
     }
