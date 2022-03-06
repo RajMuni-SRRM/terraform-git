@@ -17,12 +17,14 @@ resource "aws_instance" "k8s" {
     instance_type = "${var.instance_type}"
     key_name = "${var.key_name}"
     vpc_security_group_ids = "${var.security_group}"
- /*   tags = {
+}
+
+output "public_ip" {
+  value = aws_instance.k8s[*].public_ip
+}
+/*
+  tags = {
         Name = "Node-${count.index}"
     }
 }
 */
-output "public_ip" {
-  value = aws_instance.k8s[*].public_ip
-}
-
